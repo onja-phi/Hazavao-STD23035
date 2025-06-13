@@ -20,10 +20,12 @@ public class HazavaoController {
             String definition = hazavaoService.getDefinition(teny);
             return ResponseEntity.ok(definition);
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Erreur lors de la récupération de la définition : " + e.getMessage());
         }
     }
+
 }
 
 

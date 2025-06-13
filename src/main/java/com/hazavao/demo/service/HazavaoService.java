@@ -13,6 +13,10 @@ public class HazavaoService {
     private static final String API_KEY = System.getenv("API_KEY");
 
     public String getDefinition(String teny) {
+        if (API_KEY == null || API_KEY.isEmpty()) {
+            throw new RuntimeException("API_KEY is not set");
+        }
+
         RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();
